@@ -1,0 +1,52 @@
+<mat-card [ngStyle]="{'background-color': backgroundColor}">
+
+  <!-- Filter Row -->
+  <div *ngIf="filterableColumns.length > 0" class="filter-container">
+    <div class="filter-row">
+      <!-- Loop through columns to show filter inputs above corresponding columns -->
+      <mat-form-field *ngFor="let col of filterableColumns" appearance="outline" class="filter-form-field">
+        <mat-label>{{ col.header }}</mat-label>
+        <input
+          matInput
+          *ngIf="col.filterable"
+          type="text"
+          (input)="applyFilterFromInput(col.field, $event)"
+          placeholder="Filter {{ col.header }}"
+          class="filter-input"
+        />
+      </mat-form-field>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+    
+    <!-- Header Definition -->
+    <ng-container *ngFor="let column of columns" [matColumnDef]="column.field">
+      <mat-header-cell *matHeaderCellDef mat-sort-header [ngStyle]="headerStyle">
+        {{ column.header }}
+      </mat-header-cell>
+
+      <mat-cell *matCellDef="let element">
+        <!-- Apply truncation and show more/less link for long text columns -->
+        <div *ngIf="column.isLongText" class="truncate-text" [title]="element[column.field]?.text" (click)="toggleFullText(element, column.field)">
+          {{ getTruncatedText(element[column.field]?.text, column.field) }}
+          <span *ngIf="!element[column.field]?.showFullText" class="more-link">... More</span>
+        </div>
+        <div *ngIf="element[column.field]?.showFullText" class="full-text">
+          {{ element[column.field]?.text }}
+          <span class="less-link" (click)="toggleFullText(element, column.field)"> Less</span>
+        </div>
+
+        <!-- For non-long text columns -->
+        <div *ngIf="!column.isLongText">
+          {{ element[column.field] }}
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Header and row definitions -->
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; let i = index; columns: displayedColumns" [ngStyle]="rowAlternatingStyle(i)"></mat-row>
+  </mat-table>
+</mat-card>

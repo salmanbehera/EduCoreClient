@@ -1,0 +1,163 @@
+<div class="container">
+    <!-- Form to Add Student Information -->
+    <h2>Add Student Information</h2>
+    <form class="student-form">
+      <div class="form-grid">
+        <mat-form-field appearance="fill" class="textbox">
+          <mat-label>Name</mat-label>
+          <input matInput placeholder="Enter your name" required>
+      </mat-form-field>
+      
+    
+        <mat-form-field appearance="fill" class="textbox">
+          <mat-label>Date of Birth</mat-label>
+          <input matInput placeholder="mm/dd/yyyy" type="date" required>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="textbox">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="Enter your Email" type="email" required>
+      </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="dropdown">
+          <mat-label>Gender</mat-label>
+          <mat-select>
+            <mat-option value="male">Male</mat-option>
+            <mat-option value="female">Female</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="textbox">
+          <mat-label>Phone</mat-label>
+          <input matInput placeholder="Enter your phone number">
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="textarea">
+          <mat-label>Notes</mat-label>
+          <textarea matInput placeholder="Additional notes"></textarea>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="textarea">
+          <mat-label>Address</mat-label>
+          <textarea matInput placeholder="Enter your address"></textarea>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="textarea">
+          <mat-label>Role</mat-label>
+          <textarea matInput placeholder="Enter role"></textarea>
+        </mat-form-field>
+    
+        <div class="status-container">
+          <mat-label>Status:</mat-label>
+          <mat-radio-group>
+            <mat-radio-button value="active">Active</mat-radio-button>
+            <mat-radio-button value="inactive">Inactive</mat-radio-button>
+          </mat-radio-group>
+        </div>
+      </div>
+    
+      <div class="button-container">
+        <button class="btn btn-primary" mat-button>Add</button>
+        <button mat-raised-button class="btn btn-primary" type="submit">Add Student</button>
+  
+      </div>
+      <!-- <div>
+        <button class="btn-primary">Primary Button</button>
+  <button class="btn-secondary">Secondary Button</button>
+  <button class="btn-success">Success Button</button>
+  <button class="btn-danger">Danger Button</button>
+  <button class="btn-warning">Warning Button</button>
+  <button class="btn-info">Info Button</button>
+  <button class="btn-light">Light Button</button>
+  <button class="btn-dark">Dark Button</button>
+  <a href="#" class="btn-link">Link Button</a>
+  
+      </div>
+      <div>
+        <button class="button">Submit</button>
+  <button class="outline-button">Cancel</button>
+  <button class="rounded-button">Rounded</button>
+  <button class="gradient-button">Gradient</button>
+      </div> -->
+    </form>
+    
+    
+    
+  
+    <!-- Table for User Data -->
+    <div class="table-container mt-4">
+      <h2 class="table-title">User Data</h2>
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <!-- User ID Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let user">{{ user.id }}</td>
+        </ng-container>
+  
+        <!-- User Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let user">{{ user.name }}</td>
+        </ng-container>
+  
+        <!-- User Email Column -->
+        <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Email</th>
+          <td mat-cell *matCellDef="let user">{{ user.email }}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="phone"> 
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+          <td mat-cell *matCellDef="let user">{{ user.phone }}</td>
+        </ng-container>
+        
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Address</th>
+          <td mat-cell *matCellDef="let user">{{ user.address }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="role">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Role</th>
+          <td mat-cell *matCellDef="let user">{{ user.role }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Status</th>
+          <td mat-cell *matCellDef="let user">{{ user.status }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="createdAt">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Created At</th>
+          <td mat-cell *matCellDef="let user">{{ user.createdAt }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="updatedAt">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Updated At</th>
+          <td mat-cell *matCellDef="let user">{{ user.updatedAt }}</td>
+        </ng-container>
+  
+        <ng-container matColumnDef="lastLogin">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Last Login</th>
+          <td mat-cell *matCellDef="let user">{{ user.lastLogin }}</td>
+        </ng-container>
+  
+        <!-- Action Column -->
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let user">
+            <div class="button-group">
+              <button class="btn btn-primary" mat-button>Add</button>
+              <button class="btn btn-secondary" mat-button>Edit</button>
+            </div>
+          </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+  
+      <mat-paginator [length]="data.length" [pageSize]="5" [pageSizeOptions]="[5, 10, 20]"></mat-paginator>
+    </div>
+  </div>
+  

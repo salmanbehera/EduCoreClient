@@ -1,0 +1,53 @@
+<div class="container">
+<!-- Dialog for Adding a Class -->
+<div  class="dialog">
+     
+  <h2>
+    {{ action === 'edit' ? 'Edit Class' : action === 'view' ? 'View Class' : 'Add New Class' }}
+  </h2>
+    <button mat-icon-button class="close-button" (click)="closeDialog()">
+      <img src="assets/images/closebutton.png" alt="Close" class="close-icon" />
+    </button>
+    <form [formGroup]="classForm">
+      <app-input
+      label="id"
+      icon="person"
+      placeholder="id"
+      [control]="getControl('id')" 
+      [isHidden]="true"
+     
+    ></app-input>
+    
+        <app-input
+        label="Class Name"
+        icon="person"
+        placeholder="Class Name"
+        [control]="getControl('className')" 
+      ></app-input>
+      <app-input
+      label="Class Short Name"
+      icon="person"
+      placeholder="Class Short Name"
+      [control]="getControl('classShortName')" 
+    ></app-input>
+    <div class="button-container">
+    <app-button
+    [label]="action === 'edit' ? 'Update' : 'Save'"
+    color="primary"
+    [disabled]="data.action === 'view'">  
+    [tooltip]="action === 'edit' ? 'Update' : 'Save'"
+    (onClick)="SubmitClass()"   
+    ></app-button>
+    <app-button
+    label="Reset"
+    color="accent"
+    [disabled]="data.action === 'view'">  
+    [tooltip]="'Reset'"  
+     
+    ></app-button>
+    </div>
+         
+    </form>
+  </div>
+  
+</div>

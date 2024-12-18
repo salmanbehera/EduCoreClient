@@ -1,0 +1,77 @@
+<mat-form-field appearance="outline" class="full-width">
+  <mat-label>{{ placeholder }}</mat-label>
+
+  <!-- Single Date Picker -->
+  <div *ngIf="dateType === 'date'">
+    <input
+      matInput
+      [matDatepicker]="datePicker"
+      [formControl]="dateControl"
+      (dateChange)="addEvent($event)"
+      [min]="minDate"
+      [max]="maxDate" />
+    <mat-datepicker-toggle matSuffix [for]="datePicker"></mat-datepicker-toggle>
+    <mat-datepicker #datePicker></mat-datepicker>
+  </div>
+
+  <!-- Date Range Picker -->
+  <div *ngIf="dateType === 'range'">
+    <mat-form-field appearance="fill" class="full-width">
+      <mat-label>Enter a date range</mat-label>
+      <mat-date-range-input
+        [rangePicker]="picker"
+        [formGroup]="dateRangeGroup">
+        <input matStartDate placeholder="Start date" formControlName="startDate" />
+        <input matEndDate placeholder="End date" formControlName="endDate" />
+      </mat-date-range-input>
+      <mat-hint>MM/DD/YYYY – MM/DD/YYYY</mat-hint>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+
+  <!-- Year Picker -->
+  <div *ngIf="dateType === 'year'">
+   <input 
+   [matDatepicker]="yearPicker"
+     matInput 
+     [formControl]="yearControl" 
+     (focus)="yearPicker.open()" 
+     placeholder="Select Year" 
+      
+   />
+   <mat-datepicker-toggle matSuffix [for]="yearPicker"></mat-datepicker-toggle>
+   <mat-datepicker 
+     #yearPicker 
+     startView="multi-year" 
+     (yearSelected)="onYearSelected($event, yearPicker)" 
+     panelClass="year-only-datepicker">
+   </mat-datepicker>
+ </div>
+ 
+
+  <!-- Time Picker -->
+  <div  *ngIf="dateType === 'time'">
+    
+      <input
+        matInput
+       
+        [ngxTimepicker]="timepicker"
+        [formControl]="timeControl"
+        [placeholder]="placeholder"
+        (focus)="$event.stopPropagation()" 
+         />
+      <ngx-material-timepicker-toggle 
+     
+      matSuffix [for]="timepicker">
+  </ngx-material-timepicker-toggle>
+      <ngx-material-timepicker
+        #timepicker
+       
+        (timeSet)="onTimeSet($event)"
+        (close)="onClose()"
+        [format]="24">
+      </ngx-material-timepicker>
+    
+  </div>
+</mat-form-field>

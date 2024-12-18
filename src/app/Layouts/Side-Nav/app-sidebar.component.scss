@@ -1,0 +1,54 @@
+.sidebar-menu {
+  margin-top: 64px; /* Adjust this to change how far down the sidebar starts */
+                /* White text color */
+ 
+}
+
+
+
+.mat-icon {
+  font-size: 24px;             /* Set a larger size for the icon */
+  margin-right: 0;             /* Remove right margin */
+}
+
+.mat-nav-list {
+  padding: 0;
+}
+
+.mat-list-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sub-menu {
+  padding-left: 20px; /* Indentation for sub-menus */
+  background-color: #f4f4f4;
+}
+
+.expand-icon {
+  cursor: pointer;
+}
+
+.back-button {
+  position: absolute; /* Position absolutely within the sidebar */
+  top: 10px; /* Distance from the top */
+  left: 10px; /* Distance from the left */
+  padding: 5px; /* Space around the button */
+  border: none; /* Remove border */
+  display: flex; /* Use flex for alignment */
+  align-items: center; /* Center the icon vertically */
+  cursor: pointer; /* Change cursor on hover */
+  background: none;
+  width: 100px; /* Remove background */
+  color: red;
+}
+
+
+.back-button:hover {
+  background-color: rgba(255, 0, 0, 0.1); /* Light red hover effect */
+}
+
+
+ 

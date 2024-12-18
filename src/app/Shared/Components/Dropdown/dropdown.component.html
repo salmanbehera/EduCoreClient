@@ -1,0 +1,56 @@
+ 
+<mat-form-field appearance="outline" [style.width]="width">
+  <mat-label>{{ label }}</mat-label>
+
+  <mat-select #scrollableDropdown
+    [formControl]="control" 
+    [placeholder]="placeholder" 
+    (selectionChange)="onSelectionChange($event)"
+    [panelClass]="dropdownDirection"
+    
+  >
+    <mat-select-trigger>
+      {{ getSelectedOptionText() }}
+    </mat-select-trigger>
+
+    <!-- Search input inside the dropdown -->
+    <mat-option>
+      <div>
+        <input
+          matInput=""
+          [formControl]="searchControl"
+          placeholder="Search..."
+          (click)="$event.stopPropagation()" 
+          (keydown)="onKeydown($event)"
+        />
+      </div>
+    </mat-option>
+
+    <!-- Display filtered options -->
+    <ng-container *ngIf="filteredOptions | async as options">
+      <mat-option *ngFor="let option of options" [value]="option.value">
+        {{ option.text }}
+      </mat-option>
+    
+    <!-- No options available message -->
+    <mat-option *ngIf="options.length === 0" disabled>
+      No options available.
+    </mat-option>
+  </ng-container>
+
+ 
+       <!-- Loading spinner -->
+       <mat-option *ngIf="isLoading" disabled>
+        <div class="loading-container">
+          <mat-spinner diameter="20"></mat-spinner>
+          <span class="loading-text">Loading more options...</span>
+        </div>
+      </mat-option>
+  </mat-select>
+
+  <!-- Error Message -->
+  <mat-error *ngIf="control?.touched && control.invalid">
+    {{ errorMessage }}
+  </mat-error>
+</mat-form-field>
+ 

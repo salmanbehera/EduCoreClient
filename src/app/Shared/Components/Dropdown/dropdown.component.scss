@@ -1,0 +1,58 @@
+/* Add this CSS to make the reusable components align within the grid */
+.component-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+ 
+
+/* form-dropdown.component.scss */
+mat-form-field {
+    width: 100%;
+  }
+  
+  mat-select-trigger {
+    display: flex;
+    align-items: center;
+  }
+
+ /* Specificity example for mat-option */
+ /* Target Material dropdown options */
+
+
+
+  
+  input[matInput] {
+     
+    border: 0px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    padding: 8px; /* Internal spacing */
+    font-size: 14px; /* Smaller font size */
+    color: #333; /* Dark text color */
+    width: 100%; /* Full width */
+    outline: none; /* Remove outline */
+    box-shadow: none; /* Remove box shadow */
+}
+
+input[matInput]::placeholder {
+    color: rgba(0, 0, 0, 0.54); /* Contrasting color for placeholder */
+    opacity: 1; /* Fully opaque */
+}
+  
+
+.loading-container {
+  display: flex;
+  align-items: center; /* Center vertically */
+  padding: 8px; /* Add padding for better spacing */
+  background-color: #f5f5f5; /* Light background color */
+  border-radius: 4px; /* Rounded corners */
+}
+
+.loading-text {
+  margin-left: 8px; /* Space between spinner and text */
+  font-size: 14px; /* Adjust font size */
+  color: #666; /* Change text color */
+}
+
+
+

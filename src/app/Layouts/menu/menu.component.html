@@ -1,0 +1,43 @@
+<div class="menu-item" *ngIf="isRootNode && trigger.title && trigger.icon"
+[ngClass]="{'active': activeTrigger === trigger}">
+  <button mat-button class="menu-btn" (click)="navigate(trigger); $event.stopPropagation()">
+    <div class="menu-content">
+      <mat-icon class="menu-icon">{{ trigger.icon }}</mat-icon>
+      <span class="menu-title">{{ trigger.title }}</span>
+    </div>
+  </button>
+  
+  <!-- Only show the arrow if there are child nodes -->
+  <mat-icon *ngIf="trigger.children && trigger.children.length > 0" 
+            class="expand-icon" 
+            (click)="toggleExpand(); $event.stopPropagation();" 
+            style="cursor: pointer; margin-left: auto;">
+    {{ expanded ? 'expand_less' : 'expand_more' }}
+  </mat-icon>
+</div>
+
+<!-- Nested Menu Button -->
+<div class="menu-item" *ngIf="!isRootNode && trigger.title && trigger.icon"
+ [ngClass]="{'active': activeTrigger === trigger}">
+  <button mat-menu-item class="menu-btn" (click)="navigate(trigger); $event.stopPropagation()">
+    <div class="menu-content">
+      <mat-icon class="menu-icon">{{ trigger.icon }}</mat-icon>
+      <span class="menu-title">{{ trigger.title }}</span>
+    </div>
+  </button>
+
+  <mat-icon *ngIf="trigger.children && trigger.children.length > 0" 
+            class="expand-icon" 
+            (click)="toggleExpand(); $event.stopPropagation();" 
+            style="cursor: pointer; margin-left: auto;">
+    {{ expanded ? 'expand_less' : 'expand_more' }}
+  </mat-icon>
+</div>
+
+<!-- Submenu: Display if expanded -->
+<div *ngIf="expanded" class="submenu">
+  <ng-container *ngFor="let node of trigger.children || []">
+    <!-- Recursively display submenus -->
+    <app-menu [trigger]="node"></app-menu>
+  </ng-container>
+</div>

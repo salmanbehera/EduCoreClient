@@ -1,0 +1,183 @@
+<div class="container" >
+    <!-- Form to Add Student Information -->
+    <h2>Add Student Information</h2>
+    <form [formGroup]="demoform">
+      <div class="dynamic-input-row">
+        
+      <app-input
+      
+      label="Name"
+      icon="person"
+      placeholder="Enter your name"
+      [control]="getControl('name')" >
+    </app-input> 
+    
+       <app-custom-date-picker
+      [dateType]="'date'"
+      [placeholder]="'Date of Birth'"
+      [minDate]="minDate"
+      [maxDate]="maxDate"
+      (dateChange)="onDateChange($event)">
+    </app-custom-date-picker>  
+    <app-input
+    
+      label="Email"
+      class="span-2"
+      icon="email"
+      [type]="type"
+      placeholder="Enter your age"
+      [control]="getControl('age')" >
+    </app-input> 
+        
+     <app-dropdown
+        [label]="'Select Gender'"
+        [placeholder]="'Select Gender'"
+        [control]="getControl('genderdropdown')"
+        [staticOptions]="staticGender"
+        [dataSourceType]="'static'"
+        [errorMessage]="'Please select a Gender.'"
+        (selectionChange)="onGenderChange($event)"
+      ></app-dropdown>
+
+      <app-dropdown
+      [label]="'Dynamic Options'"
+      [placeholder]="'Select an option...'"
+      [control]="getControl('dynamicDropdown')"
+      [dynamicOptions]="dynamicOptions"
+      [dataSourceType]="'dynamic'"
+      [errorMessage]="'Please select an option.'"
+      ></app-dropdown>  
+
+      <app-checklistbox
+      [label]="'Static Names'"
+      [placeholder]="'Select an option...'"
+      [control]="getControl('namecheckboxDropdown')"
+      [staticOptions]="staticCheckboxNames"
+      [dataSourceType]="'static'"
+      [errorMessage]="'Please select an option.'"> 
+    </app-checklistbox>  
+
+    <app-checklistbox
+    [label]="'Dynamic checkbox'"
+    [placeholder]="'Select an checkbox...'"
+    [control]="getControl('dynamicCheckbox')"
+    [dynamicOptions]="dynamicOptions"
+    [dataSourceType]="'dynamic'"
+    [errorMessage]="'Please select an option.'"> 
+  </app-checklistbox>  
+
+  <app-custom-date-picker
+  [dateType]="'time'"
+  placeholder="Select time"
+  (dateChange)="onTimeChange($event)">
+</app-custom-date-picker>
+
+<app-custom-date-picker
+[dateType]="'year'"
+[placeholder]="'Select a year'"
+
+(dateChange)="onYearChange($event)">
+
+</app-custom-date-picker>
+<app-input
+label="Static Fruit Name"
+icon="fruit"
+placeholder="Static Fruit name"
+[control]="getControl('fruit')" 
+[staticOptions]="fetchstaticOptions"
+[dataSourceType]="'static'"
+(optionSelected)="onOptionSelected($event)"
+></app-input>
+
+<app-input
+label="Dynamic Fruit Name"
+icon="fruit"
+placeholder="Dynamic Fruit name"
+[control]="getControl('fruit')" 
+[dynamicOptions]="fetchDynamicOptions.bind(this)"
+[dataSourceType]="'dynamic'"
+(optionSelected)="onOptionSelected($event)"
+></app-input>
+
+<app-input
+label="Dynamic Fruit Name"
+icon="fruit"
+placeholder="Dynamic Fruit name"
+[control]="getControl('fruit')" 
+[staticOptions]="fetchstaticOptions"
+[dynamicOptions]="fetchDynamicOptions.bind(this)"
+[dataSourceType]="'both'"
+(optionSelected)="onOptionSelected($event)"
+></app-input>
+
+      </div>
+
+      <div>
+        <!-- <app-table
+  [data]="products"
+  [columns]="columns"
+  [backgroundColor]="'#f9f9f9'"
+  [headerStyle]="{ 'background-color': '#2d2e2d', 'color': '#fff' }"
+  [rowStyle]="{ 'background-color': '#ffffff' }"
+  [alternateRowStyle]="{ 'background-color': '#f5f5f5' }"
+  >
+</app-table> -->
+<!-- Only render <app-custom-table> when data is loaded -->
+      <!-- <app-custom-table
+  *ngIf="products && products.length > 0"
+  [config]="tableConfig"
+  [initialColumnCount]="10"
+  [showDropdown]="true" 
+  [showSearchInput]="true" 
+  [totalCount]="totalCount"
+  [pageSize]="pageSize"
+  [currentPage]="currentPage"
+  (pageChange)="onPageChange($event)"
+  [data]="products">
+</app-custom-table> 
+<p *ngIf="!products || products.length === 0">Loading...</p> 
+
+      </div>   -->
+
+          <app-custom-table
+        *ngIf="products && products.length > 0"
+        (loadMoreEvent)="handleLoadMore($event)"
+        [config]="tableConfig"
+        [data]="products">
+      </app-custom-table> 
+    <p *ngIf="!products || products.length === 0">Loading...</p> 
+    
+          </div>  
+
+        <div class="button-container">
+        <app-button
+    label="Save"
+    color="primary"
+    [disabled]="false"   
+    [tooltip]="'Save'"  
+    (onClick)="onSuccess()"   
+    ></app-button>
+    <app-button
+    label="Reset"
+    color="secondary"
+    [disabled]="false"   
+    [tooltip]="'Reset'"  
+    (onClick)="onError()"   
+    ></app-button>
+    <app-button
+    label="Delete"
+    color="warn"
+    [disabled]="false"   
+    [tooltip]="'Delete'"  
+    (onClick)="onDelete()"   
+    ></app-button>
+      </div>    
+    </form>
+    
+    
+    
+  
+    <!-- Table for User Data -->
+     
+ 
+</div>

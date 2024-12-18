@@ -1,0 +1,24 @@
+// Padding Utilities
+.p-5 { padding: 5px; }
+.p-10 { padding: 10px; }
+.p-20 { padding: 20px; }
+
+// Margin Utilities
+.m-5 { margin: 5px; }
+.m-10 { margin: 10px; }
+.m-20 { margin: 20px; }
+
+// Text Alignments
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+// Flex Utilities
+.flex {
+  display: flex;
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}

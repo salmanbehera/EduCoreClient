@@ -1,0 +1,140 @@
+<div class="outer">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-7">
+          <div class="login-card">
+            <div class="title-container">
+                <mat-card-title>Login</mat-card-title>
+              </div>
+
+
+            <form [formGroup]="loginForm">
+              <!-- Username Field -->
+              <app-input
+              label="Username"
+              icon="person"
+              placeholder="User name"
+              [control]="getControl('username')" 
+              
+            ></app-input>
+              <!-- <mat-form-field>
+                  <mat-icon matPrefix>person</mat-icon>
+                <mat-label>Username</mat-label>
+                <input
+                  matInput
+                  type="text"
+                  formControlName="username"
+                  placeholder="username"
+                />
+                <mat-error *ngIf="loginForm.controls['username'].hasError('required')">
+                  Username is required
+                </mat-error>  
+               
+              </mat-form-field> -->
+  
+              <!-- Password Field with Forget Password Link -->
+                <!-- <mat-form-field>
+                <mat-icon matPrefix>lock</mat-icon>
+                <mat-label>Password</mat-label>
+                <input
+                  matInput
+                  
+                  [type]="type"
+                  formControlName="password"
+                  placeholder="password"
+                /> 
+                <button mat-icon-button matSuffix (click)="hideshowpass()">
+                  <mat-icon>{{ type === 'password' ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+                <mat-error *ngIf="loginForm.controls['password'].hasError('required')">
+                  Password is required
+                </mat-error>
+              </mat-form-field>  -->
+              <app-input
+                label="Password"
+                [type]="type"
+                icon="lock"
+                placeholder="password"
+                [control]="getControl('password')" 
+                [showPasswordToggle]="true"
+              >
+                 </app-input>
+
+
+       
+
+  
+              <!-- Container for Forget Password Link -->
+              <div class="forget-password-container">
+                <a mat-button (click)="openResetPasswordDialog()">Forget Password?</a>
+              </div>
+  
+              <!-- Login Button -->
+              <!-- <button
+                mat-raised-button
+                color="primary"
+                class="w-100 login-button"
+                [disabled]="loginForm.invalid"
+                (click)="OnLogin()"
+              >
+                Login
+              </button> -->
+               <app-button label="Login" 
+               [type]="'submit'" 
+               [color]="'primary'"
+                [disabled]="loginForm.invalid"  
+               (onClick)="OnLogin()"
+               ></app-button>   
+              <!-- Sign Up Link -->
+              <!-- <div class="text-center pt-4 text-muted">
+                Don't have an account?
+                <a mat-button routerLink="/signup">Sign Up</a>
+              </div> -->
+
+              
+              
+            </form>
+  
+             
+             
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Reset Password Dialog -->
+  <ng-template #dialogTemplate>
+    <h2 mat-dialog-title>Forget Your Password?</h2>
+    <button mat-icon-button class="close-button" (click)="onClose()">
+      <img src="assets/images/closebutton.png" alt="Close" class="close-icon" />
+    </button>
+    <mat-dialog-content>
+     
+      <form [formGroup]="resetPasswordForm">
+      <app-input
+      label="Email"
+      icon="email"
+      placeholder="Email"
+      [control]="getControl('resetPasswordEmail')" 
+      
+    ></app-input>
+    
+    <div class="button-container">
+   
+    <app-button
+    label="Send"
+    color="primary"
+    [disabled]="false"   
+    [tooltip]="'Click to Send Email'"  
+    (onClick)="ConfirmToSend()"   
+    ></app-button>
+     
+    </div>
+      </form>
+      <!-- <button mat-button (click)="onClose()">Close</button>
+      <button mat-raised-button color="primary" (click)="ConfirmToSend()">Send</button> -->
+    </mat-dialog-content>
+  </ng-template>
+  
+   

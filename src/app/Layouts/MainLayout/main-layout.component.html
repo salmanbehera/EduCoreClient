@@ -1,0 +1,18 @@
+<mat-sidenav-container class="main-container">
+  <!-- Sidebar (mat-sidenav) -->
+  <mat-sidenav #drawer mode="side" class="sidenav" [opened]="false">
+      <app-sidebar #sidebar (closeSidebar)="drawer.close()"></app-sidebar><!-- Sidebar Component -->
+       <!-- Sidebar Component with the reference #sidebar -->
+  </mat-sidenav>
+
+  <!-- Main content including the header -->
+  <mat-sidenav-content>
+    <app-header (toggleSidebar)="drawer.toggle()"></app-header> <!-- Header Component -->
+    
+    <!-- The main page content goes here -->
+    <div class="main-content">
+      <router-outlet></router-outlet> 
+      <!-- Router outlet for content -->
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

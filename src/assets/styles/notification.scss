@@ -1,0 +1,55 @@
+
+ .toast-success{
+  background: transparent !important; /* Ensures default is cleared */
+  background-color: #4caf50 !important;  /* Replace #4caf50 with your desired green color */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 8px 16px !important;  
+  text-align: center; 
+  
+  box-shadow: none;  /* Optionally remove any shadows */
+}
+
+
+.toast-error {
+  background: transparent !important;
+  background-color: #f44336 !important;  /* Red background */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: none;  /* Optionally remove any shadows */
+}
+
+.toast-warning {
+  background-color: #ff9800 !important;  /* Orange background */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.toast-info {
+  background-color: #2196f3 !important;  /* Blue background */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}
+
+.toast-alert {
+  background-color: #ff5722 !important;  /* Deep orange background */
+  color: white !important;
+  font-weight: bold;
+  border-radius: 4px;
+  padding: 8px;
+  text-align: center;
+  font-size: 14px;
+}

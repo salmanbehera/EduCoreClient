@@ -1,0 +1,69 @@
+ 
+ 
+
+/* Ensure mat-form-field takes height from input */
+mat-form-field {
+display: block;
+width: 100%;
+}
+
+//  /* Override the height for outlined text fields */
+// .mdc-text-field--outlined {
+//   height: 46px !important; /* Set your desired height here */
+//   overflow: hidden; /* Ensure no overflow */
+// }
+ 
+/* Adjust the height of the input element */
+.mat-mdc-input-element {
+  padding: 2px 4px !important; /* Reduce padding for smaller height and shift text to the left */
+  font-size: 14px !important; /* Adjust font size */
+  height: 100% !important; /* Further reduce the input field height */
+  line-height:normal !important; /* Ensure line-height doesn't increase the input size */
+  box-sizing: border-box !important; /* Make padding and border included in the height */
+  margin-left: -15px !important; /* Move the input field content more to the left */
+}
+
+ 
+
+/* Adjust the icon size and alignment */
+mat-icon {
+  font-size: 20px; /* Adjust icon size */
+  line-height: 30px; /* Match the icon to the input height */
+  vertical-align: middle; /* Align the icon vertically in the middle */
+}
+
+
+
+  mat-icon.password-toggle {
+    color: #05489e !important; /* Customize color */
+    background-color: transparent !important; /* Ensure no background */
+  }
+  
+  button.password-toggle-button {
+    background-color: transparent !important; /* No background */
+    border: none !important; /* Remove border */
+    box-shadow: none !important; /* Remove any shadow */
+    padding: 0 !important; /* Remove padding */
+    outline: none !important; /* Remove focus outline */
+  }
+  
+ 
+ //spiner
+//  .dropdown-container {
+//   position: relative; /* Position for absolute elements, if any */
+// }
+
+.dropdown-container {
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+
+// .dropdown-list {
+//   max-height: 200px; /* Set your desired height */
+//   overflow-y: auto; /* Enable vertical scrolling */
+//   border: 1px solid #ccc; /* Optional: to visualize the dropdown */
+// }
+
+  
+

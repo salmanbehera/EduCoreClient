@@ -1,0 +1,90 @@
+/* Limit cell width and truncate long text */
+.mat-cell, .mat-header-cell {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 200px; /* Adjust as needed for your column width */
+  text-align: center;
+  padding: 10px;
+}
+
+/* Set row height */
+.mat-row, .mat-header-row {
+  height: 30px; /* Adjust based on design */
+}
+
+/* Styling for the filter row */
+.filter-row .mat-header-cell {
+  padding: 4px 8px; /* Adjust padding for a tighter filter row */
+}
+
+/* Form field for filters with same width as column */
+.filter-form-field {
+  width: 100%;
+  margin: 0;
+  max-width: 200px; /* Ensures input is the same width as the column */
+}
+
+.filter-input {
+  font-size: 12px;
+  padding: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+/* Align input to column header */
+.filter-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.filter-form-field {
+  margin-right: 10px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 0; /* Ensures no extra space below the input field */
+}
+
+/* Truncation styling for long text columns */
+.text-truncate {
+  display: inline-block;
+  max-width: 250px; /* Adjust based on your column width */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.full-text {
+  display: block;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 5px;
+}
+
+/* Style for the 'More' link */
+.more-link, .less-link {
+  color: #004b42a9;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  display: inline-block;
+  margin-top: 5px;
+}
+
+.less-link {
+  display: inline-block;
+  margin-left: 5px;
+}

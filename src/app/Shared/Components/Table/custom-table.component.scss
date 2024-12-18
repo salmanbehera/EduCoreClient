@@ -1,0 +1,428 @@
+ 
+// .table-container {
+//   max-height: 200px; /* Set the height for the table body to make it scrollable */
+//   overflow-y: auto;  /* Enables vertical scrolling */
+//   display: block;
+// }
+/* Ensures the table container doesn't overflow */
+.table-container {
+  overflow-x: auto;
+  width: 100%;
+  //overflow-x: scroll;
+}
+
+/* Styling for mat-table to make it more responsive */
+mat-table {
+  width: 100%;
+  table-layout: fixed; /* Ensures table columns have fixed width */
+}
+
+/* Table header and row adjustments for smaller screens */
+mat-header-cell, mat-cell {
+  padding: 8px 16px; /* Adjust padding as needed */
+  text-align: left; /* Align text to the left */
+}
+
+/* Handle responsiveness of the table columns */
+@media (max-width: 768px) {
+  mat-header-cell, mat-cell {
+    font-size: 12px; /* Smaller text size for mobile screens */
+    padding: 6px; /* Less padding */
+  }
+
+  
+
+  /* Stack columns vertically on small screens */
+  mat-header-cell, mat-cell {
+    display: block;
+    width: 100%;
+    text-align: right; /* Align text to the right for mobile view */
+    box-sizing: border-box; /* Ensure the width respects padding and margins */
+  }
+
+  mat-row {
+    display: block;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #f1f1f1; /* Optional border for rows */
+  }
+
+  mat-header-row {
+    display: none; /* Hide header row for small screens, will be replaced with column labels */
+  }
+
+  mat-header-cell {
+    display: none; /* Hide original header cells */
+  }
+
+  /* Show header text in the row for small screens */
+  mat-row {
+    position: relative;
+    padding-left: 20px; /* Add space for custom labels */
+  }
+
+  mat-cell:before {
+    content: attr(mat-column-name); /* Display column name before the cell content */
+    font-weight: bold;
+    padding-right: 5px;
+    position: absolute;
+    left: 0;
+  }
+}
+
+
+ /* Define default header style */
+.header-style {
+  background-color: #2d2e2d;
+  color: #fff;
+}
+
+/* Define default row style */
+.row-style {
+  background-color: #fafafa;
+  color: #333;
+}
+
+/* Define alternate row style */
+.alt-row-style {
+  background-color: #f5f5f5;
+  color: #000;
+}
+
+ 
+
+
+
+/* Wrapper for header content */
+.header-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  
+  pointer-events: none; /* Prevent elements from blocking clicks */
+}
+
+/* Styling for the header text */
+.header-text {
+  font-weight: bold;
+  font-size: 14px;
+  text-align: left; /* Aligns the header text */
+  pointer-events: all; /* Enable clicks on header text */
+}
+
+/* Styling for the input filter */
+.header-filter {
+  margin-top: 4px; /* Optional spacing between header text and input */
+  pointer-events: all; /* Enable clicks on the filter input */
+}
+
+.header-filter input {
+  padding: 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1px;
+}
+
+.header-filter input:focus {
+  border-color: #3f51b5;
+  outline: none;
+  box-shadow: 0 0 4px rgba(63, 81, 181, 0.4);
+}
+
+
+
+/* Truncation styling for long text columns */
+.truncated-text {
+  display: inline-block;
+  max-width: 150px; /* Control width as needed */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  vertical-align: middle;
+  cursor: pointer; /* Helps indicate the element is interactive */
+}
+
+::ng-deep.custom-tooltip {
+  background-color: rgba(50, 50, 50, 0.9); /* Semi-transparent dark background */
+  color: #ffffff; /* White text for contrast */
+  padding: 10px 14px; /* Slightly more padding for better readability */
+  border-radius: 6px; /* Slightly more rounded corners for a modern look */
+  font-size: 16px; /* Adjusted font size */
+  max-width: 300px; /* Increased max width */
+  word-wrap: break-word; /* Wrap text if it exceeds max width */
+  text-align: left; /* Left-align text for better readability */
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow for better focus */
+  white-space: pre-wrap; /* Preserve whitespace and line breaks */
+}
+
+/* General hover effect for all rows */
+mat-row:hover {
+  background-color: #afa9a9; /* Light gray or any other color on hover */
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Selected row background color */
+.selected-row {
+  background-color: #d3e0ff; /* Change this to the color for selected rows */
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Hover effect for selected row (to ensure hover works even after selecting) */
+.selected-row:hover {
+  background-color: #d3e0ff;/* Optional: color change when hovered over selected row */
+  color: rgb(20, 19, 19); /* Optional: change text color on hover */
+}
+
+ 
+
+//  //global filter input
+//  .container {
+//   position: relative;
+//   padding: 5px;
+// }
+
+// .search-container {
+//   position: absolute;
+//   top: 10px;
+//   right: 25px;
+//   z-index: 1;
+//   width: 350px; /* Adjust width for better appearance */
+// }
+
+// .search-input {
+//   width: 100%;
+//   height: 40px; /* Increased height for a more prominent look */
+//   padding: 0 12px;
+//   font-size: 14px; /* Adjust font size for better readability */
+//   border-radius: 4px; /* Rounded corners for a modern look */
+//   border: 1px solid #ccc; /* Light border */
+//   background-color: #f9f9f9; /* Subtle background */
+//   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+//   transition: border-color 0.3s ease, box-shadow 0.3s ease;
+// }
+
+// .search-input:focus {
+//   outline: none; /* Remove default focus outline */
+//   border-color: #3f51b5; /* Blue border on focus */
+//   box-shadow: 0 0 5px rgba(63, 81, 181, 0.2); /* Soft blue shadow on focus */
+// }
+
+// .search-input::placeholder {
+//   color: #999; /* Light placeholder text */
+// }
+
+// table {
+//   width: 100%;
+//   margin-top: 60px; /* Adjust margin for spacing below search bar */
+// }
+
+// .header-filter input {
+//   width: 100%;
+//   margin: 5px 0;
+// }
+
+// .mat-icon {
+//   font-size: 18px;
+// }
+
+
+
+//  /* Optional: Styling for the column visibility toggle checkboxes */
+// .column-visibility-toggle {
+//   margin-bottom: 20px;
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .column-visibility-toggle mat-checkbox {
+//   margin-right: 10px;
+// }
+
+// /* Table wrapper to enable horizontal scrolling */
+// .table-wrapper {
+//   overflow-x: auto;
+// }
+
+// .column-visibility {
+//   display: flex;
+//   flex-direction: column;
+//   padding: 10px;
+//   background-color: #f4f4f4;
+// }
+
+// .column-visibility label {
+//   margin-bottom: 5px;
+// }
+
+
+// /* Optional: Styling for the column visibility toggle checkboxes */
+// .column-visibility-toggle {
+//   margin-bottom: 5px;
+//   display: flex;
+//   flex-wrap: wrap;
+// }
+
+// .column-visibility-toggle mat-checkbox {
+//   margin-right: 10px;
+// }
+
+// /* Table wrapper to enable horizontal scrolling */
+// .table-wrapper {
+//   overflow-x: auto;
+// }
+
+
+/* Container for the header with toggle checkboxes and search input */
+.header-container {
+  display: flex;
+  justify-content: space-between; /* Space out children */
+  align-items: center; /* Center items vertically */
+  padding: 10px; /* Add padding for some spacing */
+  border-bottom: 1px; /* Optional: Add a subtle divider */
+   
+}
+
+/* Styling for the search container */
+// .search-container {
+//   position: relative;
+//   width: 300px; /* Adjust width for better appearance */
+// }
+.search-container {
+  position: relative;
+   
+  right: 25px;
+  z-index: 1;
+  width: 350px; /* Adjust width for better appearance */
+}
+
+.search-input {
+  width: 100%;
+  height: 36px; /* Reduced height for a balanced look */
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #3f51b5;
+  box-shadow: 0 0 5px rgba(63, 81, 181, 0.2);
+}
+
+.search-input::placeholder {
+  color: #999;
+}
+table {
+  width: 100%;
+  margin-top: 1px; /* Adjust margin for spacing below search bar */
+}
+
+.header-filter input {
+  width: 100%;
+  margin: 5px 0;
+}
+
+.mat-icon {
+  font-size: 18px;
+}
+ 
+
+/* Container for the dropdown */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Button to toggle the dropdown menu */
+.dropdown-toggle {
+  padding: 8px 12px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #f9f9f9;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dropdown-toggle:hover {
+  background-color: #e0e0e0;
+  border-color: #bbb;
+}
+
+/* Dropdown menu container */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 200px;
+  padding: 8px;
+  margin: 4px 0;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Show the dropdown menu */
+.dropdown-menu.show {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Styling for checkboxes in the dropdown */
+.dropdown-menu mat-checkbox {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.dropdown-menu mat-checkbox .mat-checkbox-label {
+  color: #333;
+  font-size: 14px;
+}
+
+/* Optional hover effects for better UX */
+.dropdown-menu mat-checkbox:hover {
+  background-color: #f0f0f0;
+  border-radius: 3px;
+  padding: 2px;
+}
+
+
+.scroll-container {
+  height: 500px; /* Adjust as needed */
+  overflow-y: auto;
+}
+
+.spinner-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure it's above other elements */
+  width: 60px; /* Optional: define a specific size for the container */
+  height: 60px; /* Optional: define a specific size for the container */
+}
+
+table {
+  position: relative; /* Ensure spinner overlays the table */
+}
+
+ 
+
+
+
+ 
+

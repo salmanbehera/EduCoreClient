@@ -1,0 +1,203 @@
+// Import Angular Material core functions
+@use '@angular/material' as mat;
+
+// Global Variables
+$primary-color: #3f51b5;
+$accent-color: #ff4081;
+$warn-color: #f44336;
+$background-color: #f5f5f5;
+$font-family: 'Roboto', sans-serif;
+
+// Include core Material styles (necessary for components to function properly)
+@include mat.core();
+
+// Global Base Styles
+body {
+  font-family: $font-family;
+  background-color: $background-color;
+  color: $primary-color;
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  margin: 0 0 20px 0;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Dark theme mode class (manually styled without Angular Material theming)
+.dark-theme {
+  background-color: #212121;
+  color: #e0e0e0;
+}
+
+// Additional Imports for Global Styles
+@import './assets/styles/materialform.scss';
+@import './assets/styles/layout.scss';
+//@import './assets/styles/typography.scss';
+@import './assets/styles/buttons.scss';
+//@import './assets/styles/forms.scss';
+@import './assets/styles/tables.scss';
+@import './assets/styles/responsive.scss';
+@import './assets/styles/notification.scss';
+//@import './assets/styles/custom-components.scss';
+//@import './assets/styles/dark-mode.scss';
+//@import './assets/styles/utilities.scss';
+//@import './assets/styles/loader.scss';
+//@import './assets/styles/alerts.scss';
+
+  /* Override the height for outlined text fields */
+.mdc-text-field--outlined {
+  height: 45px !important; /* Set your desired height here */
+  overflow: hidden; /* Ensure no overflow */
+  
+}
+ 
+.mat-mdc-option {
+  margin: 0 !important;  /* Remove default margin */
+  padding: 2px 8px !important; /* Decrease vertical padding */
+  font-size: 14px !important;  /* Adjust font size to be smaller */
+  line-height: 1.2 !important; /* Decrease line-height for less vertical spacing */
+  height: auto; /* Ensure items can shrink */
+  display: flex; /* Use flexbox for better control */
+  align-items: center; /* Center items vertically */
+}
+
+/* Add styles for dropdown positioning */
+.mat-select-panel {
+  /* Common styles for the dropdown panel */
+  z-index: 1000; /* Ensure it appears above other elements */
+  max-height: 200px; /* Set a maximum height */
+  overflow: auto; /* Enable scrolling if options exceed the max height */
+}
+
+.upward {
+  transform: translateY(-100%); /* Position the dropdown upwards */
+}
+
+.downward {
+  transform: translateY(0); /* Default downward position */
+}
+
+.left {
+  transform: translateX(-100%); /* Position the dropdown to the left */
+}
+
+.right {
+  transform: translateX(100%); /* Position the dropdown to the right */
+}
+
+  
+ ///* toster snackbar styling */
+
+
+/* Snackbar Container Styling */
+.mat-mdc-snack-bar-container .mdc-snackbar__surface {
+  display: flex; /* Flexbox for alignment */
+  align-items: center; /* Center vertically */
+  justify-content: space-between; /* Space between label and action */
+  background-color: transparent !important; /* Transparent background */
+  color: white !important; /* Text color */
+  border-radius: 8px !important; /* Rounded corners */
+  padding: 12px 16px; /* Padding for spacing */
+  box-shadow: none !important; /* Remove shadows */
+  font-size: 16px;
+  font-weight: bold; /* Bold text for children */
+  font-family: Arial, sans-serif; /* Consistent font family for all children */
+}
+
+/* Label (Snackbar Text) Styling */
+.mat-mdc-snack-bar-container .mdc-snackbar__label {
+  flex-grow: 1; /* Allow label to take remaining space */
+  margin-right: 16px; /* Space between label and action */
+  font-size: 17px !important; /* Inherit size from parent */
+   
+}
+
+/* Close Action Button Styling */
+.mat-mdc-snack-bar-container .mdc-snackbar__action {
+  color: white !important; /* White color for 'Close' action */
+  font-size: inherit; /* Inherit size from parent */
+  font-weight: inherit; /* Inherit weight from parent */
+  text-decoration: none; /* Remove underline */
+  cursor: pointer; /* Pointer cursor */
+  background: transparent; /* Transparent background */
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Border for button appearance */
+  border-radius: 4px; /* Rounded corners */
+  padding: 4px 12px; /* Padding for a flat button look */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+  font-size: 14px;
+}
+
+/* Hover and Focus State for Action Button */
+.mat-mdc-snack-bar-container .mdc-snackbar__action:hover,
+.mat-mdc-snack-bar-container .mdc-snackbar__action:focus {
+  background-color: rgba(255, 255, 255, 0.2); /* Light overlay on hover/focus */
+}
+
+//dilog box css
+// .mat-dialog-container {
+//   display: block;
+//   max-width: 400px;
+//   padding: 16px;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//   border-radius: 8px;
+//   background-color: white;
+// }
+
+// .mat-dialog-title {
+//   font-size: 20px;
+//   font-weight: bold;
+//   margin: 0;
+//   padding-bottom: 12px;
+//   border-bottom: 1px solid #ddd;
+// }
+
+// .mat-dialog-content {
+//   padding: 16px 0;
+//   font-size: 16px;
+//   color: #333;
+// }
+
+// .mat-dialog-actions {
+//   display: flex;
+//   justify-content: flex-end;
+//   gap: 8px;
+//   padding-top: 12px;
+//   border-top: 1px solid #ddd;
+//   margin-top: 12px;
+// }
+
+// .mat-button {
+//   text-transform: uppercase;
+//   padding: 8px 16px;
+//   border-radius: 4px;
+//   font-weight: 500;
+// }
+
+// .mat-button:first-child {
+//   background-color: #f5f5f5;
+//   color: #555;
+//   margin-right: 8px;
+// }
+
+// .mat-button:last-child {
+//   background-color: #1976d2;
+//   color: white;
+// }
+
+// .mat-button:hover {
+//   opacity: 0.9;
+// }
+
+  

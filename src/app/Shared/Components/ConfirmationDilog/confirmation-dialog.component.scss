@@ -1,0 +1,125 @@
+
+
+/* Dialog Container */
+.dialog-container {
+  display: block;
+  max-width: 500px;
+  padding: 24px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  background-color: #fff;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.3s ease-out forwards; /* Slide-up and fade-in */
+}
+
+/* Fade-In & Slide-Up Animation */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Title Styling */
+.dialog-title h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #333;
+  text-align: center;
+  transition: color 0.3s ease;
+}
+
+.dialog-title h2:hover {
+  color: #1976d2; /* Add a hover color effect */
+}
+
+/* Content Styling */
+.dialog-content {
+  font-size: 16px;
+  color: #555;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+/* Button Actions Section */
+.dialog-actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+/* General Button Styling */
+.dialog-actions .mat-button {
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.2s ease;
+}
+
+
+// /* Button Styles */
+.cancel-btn, .confirm-btn {
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: 500;
+  transition: background-color 0.3s, color 0.3s;
+  width: 120px;
+  text-transform: uppercase;
+}
+
+/* Cancel Button Specific Styling */
+.cancel-btn {
+  background-color: #e24646;
+  color: #fff;
+  border: 1px solid #ccc;
+}
+
+.cancel-btn:hover {
+  background-color: #e24646;
+  color: #fff;
+  transform: scale(1.05); /* Slight button scaling */
+}
+
+/* Confirm Button Specific Styling */
+.confirm-btn {
+  background-color: #1976d2;
+  color: white;
+  border: 1px solid #1976d2;
+  transform: scale(0.98);
+}
+
+.confirm-btn:hover {
+  background-color: #1565c0;
+  border-color: #1565c0;
+  transform: scale(1.05); /* Slight button scaling */
+
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .dialog-container {
+    width: 90%;
+    padding: 16px;
+  }
+
+  .dialog-title h2 {
+    font-size: 20px;
+  }
+
+  .dialog-content {
+    font-size: 14px;
+  }
+
+  .dialog-actions {
+    gap: 12px;
+  }
+}

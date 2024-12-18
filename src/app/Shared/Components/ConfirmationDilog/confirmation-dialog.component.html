@@ -1,0 +1,29 @@
+<div class="dialog-container">
+  <!-- Title Section -->
+  <div class="dialog-title">
+    <h2>{{ data.title || 'Confirmation' }}</h2> <!-- Removed the optional chaining operator -->
+  </div>
+
+  <!-- Content Section -->
+  <div class="dialog-content">
+    <p>{{ data.message || 'Are you sure you want to perform this action?' }}</p>
+  </div>
+
+  <!-- Button Actions Section -->
+  <div class="dialog-actions">
+    <button
+      mat-button
+      [ngClass]="cancelButtonClass"
+      (click)="onCancel()"
+    >
+      Cancel
+    </button>
+    <button
+      mat-button
+      [ngClass]="confirmButtonClass"
+      (click)="onConfirm()"
+    >
+      Confirm
+    </button>
+  </div>
+</div>

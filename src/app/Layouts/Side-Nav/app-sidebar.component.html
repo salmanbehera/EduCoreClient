@@ -1,0 +1,14 @@
+<mat-nav-list class="sidebar-menu">
+    
+  <button (click)="onBackButtonClick()"  class="back-button" >
+      <mat-icon>arrow_back</mat-icon>
+    </button>
+   
+     
+ 
+
+<ng-container *ngFor="let item of menuItems">
+  <app-menu [trigger]="item" [isRootNode]="true"></app-menu>
+</ng-container>
+  </mat-nav-list>
+ 

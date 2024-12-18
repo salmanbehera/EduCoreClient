@@ -1,0 +1,72 @@
+.outer {
+    background: linear-gradient(to bottom right, #4A90E2, #A1C6E7);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .login-card {
+    width: 350px; /* Set your desired width here */
+    margin: auto; /* Center the form */
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .forget-password-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: flex-end; /* Align to the right */
+    margin-top: -16px; /* Adjust margin to move it closer to the input */
+  }
+
+  .forget-password-container a {
+    color: #1976d2 !important; /* Change the link color to match your theme */
+  }
+
+  .title-container {
+    display: flex;
+    justify-content: center;  /* Ensure the title is centered */
+    width: 100%;              /* Ensure it takes full width */
+  }
+  
+  mat-card-title {
+    color: black;
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center; /* Centers buttons horizontally */
+  align-items: center;     /* Centers buttons vertically */
+    gap: 8px; /* Adjust this value for the space between buttons */
+  }
+  
+  .close-button {
+    position: absolute;
+    right: 8px; /* Adjust as needed */
+    top: 8px; /* Adjust as needed */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+     
+  }
+  
+  .close-button img {
+    width: 20px; /* Adjust the size of the close icon */
+    height: 20px; /* Adjust the size of the close icon */
+  }
+  
+   
+  
+
+
+
+
+
+
+
+
+ 

@@ -1,0 +1,39 @@
+<div *ngIf="!isHidden">
+  <mat-form-field  
+   
+  [ngStyle]="{ width: width, height: height }"
+   appearance="outline">
+   <mat-icon *ngIf="icon" matPrefix>{{ icon }}</mat-icon>
+   <mat-label>{{ label }}</mat-label>
+   <input
+     matInput
+     [type]="type"
+     [formControl]="control"
+     [placeholder]="placeholder"
+     [readonly]="isReadOnly"
+     [matAutocomplete]="auto"
+     (scroll)="loadMoreOptions()"
+   />
+   <mat-autocomplete #auto="matAutocomplete" (optionSelected)="onOptionSelected($event)">
+     <div #dropdownContainer class="dropdown-container">
+       <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+         {{ option }}
+       </mat-option>
+       <mat-spinner *ngIf="isLoading"></mat-spinner>
+     </div>
+   </mat-autocomplete>
+   
+    
+   
+   
+    
+    <!-- Password visibility toggle button, shown conditionally -->
+    <button *ngIf="showPasswordToggle" mat-icon-button matSuffix (click)="hideshowpass($event)" class="password-toggle-button">
+     <mat-icon class="password-toggle">{{ isPasswordVisible ? 'visibility' : 'visibility_off' }}</mat-icon>
+   </button>
+
+   <mat-error *ngIf="control?.touched && errorMessage">
+     {{ errorMessage }}
+   </mat-error>
+ </mat-form-field>
+</div>

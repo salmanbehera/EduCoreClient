@@ -1,0 +1,49 @@
+// button {
+//     display: flex;
+//     align-items: center;
+//     width: 100%; /* Full width of the container */
+//     border-radius: 0px; /* Set rounded corners */
+  
+//     .button-icon {
+//       margin-right: 8px;  // Space between icon and label
+//     }
+//   }
+  
+  
+button {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centering text and icon */
+  width: 100%; /* Full width of the container */
+  padding: 12px 20px; /* Adequate padding for a clean look */
+  border-radius: 4px; /* Rounded corners for a modern feel */
+  background-color: #007bff; /* Primary button color */
+  color: white; /* Text color */
+  font-size: 13px; /* Readable font size */
+  font-weight: 600; /* Slightly bolder font for prominence */
+  border: none; /* Removing default border */
+  cursor: pointer; /* Pointer cursor for clickability */
+  transition: all 0.3s ease; /* Smooth transition for hover effects */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+button:hover {
+  
+  transform: translateY(-2px); /* Slight upward movement for interactivity */
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+}
+
+button:active {
+  transform: translateY(1px); /* Subtle effect when button is clicked */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Reset shadow on click */
+}
+
+.button-icon {
+  margin-right: 8px; /* Space between icon and label */
+  font-size: 16px; /* Icon size */
+  transition: transform 0.3s ease; /* Smooth transition for icon movement */
+}
+
+button:hover .button-icon {
+  transform: scale(1.1); /* Slight scale-up effect on hover */
+}

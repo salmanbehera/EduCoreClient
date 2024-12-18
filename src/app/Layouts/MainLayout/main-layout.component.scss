@@ -1,0 +1,63 @@
+/* mainlayout.component.css */
+// .main-container {
+//   height: 100vh;
+//   display: flex;
+//   flex-direction: column;
+// }
+
+// .sidenav {
+//       /* Adjust based on your header's height */
+//   width: 250px;
+//   background: white;
+//    z-index: 1000; /* Ensure it appears above other elements */
+// }
+
+// .mat-sidenav {
+//   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+// }
+
+// .header-toolbar {
+//   height: 64px; /* Adjust this if you change the toolbar height */
+// }
+// .main-content {
+//     padding-top: 64px; /* Ensure content starts below header */
+//     /* Add any additional styling here */
+// }
+
+// /* Define the height for the main container */
+.main-container {
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    flex-direction: column;
+     
+}
+
+/* Header section */
+mat-sidenav-content app-header {
+    height: 64px; /* Define height for the header */
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the header is above other content */
+    
+}
+
+/* Sidebar positioning */
+.sidenav {
+     /* Set to match the header's height */
+    width: 250px;
+    //height: calc(100vh - 90px); /* Sidebar height adjusted to the remaining space */
+    position: fixed;
+    //top: 5px; /* Ensures it opens right below the header */
+    z-index: 1000;
+     
+}
+
+/* Main content padding below the header */
+.main-content {
+    //padding: 80px 20px; /* Push content down to avoid being hidden under the header */
+padding-top: 15px,; /* Add some padding to ensure content is not cramped */
+ 
+min-height: calc(100vh - 64px); /* Adjust for header height */
+overflow: auto; /* Ensure the content is scrollable if it's long */
+}

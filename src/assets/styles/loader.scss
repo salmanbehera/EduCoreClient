@@ -1,0 +1,17 @@
+// Global Colors
+$primary-color: #3f51b5; // Adjust as necessary for your design
+
+// Loader
+.loader {
+    border: 5px solid #f3f3f3; // Light gray background
+    border-radius: 50%; // Circular shape
+    border-top: 5px solid $primary-color; // Use custom primary color
+    width: 40px; // Width of the loader
+    height: 40px; // Height of the loader
+    animation: spin 1s linear infinite; // Spin animation
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); } // Starting rotation
+    100% { transform: rotate(360deg); } // Ending rotation
+}

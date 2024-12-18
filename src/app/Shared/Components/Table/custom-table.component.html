@@ -1,0 +1,135 @@
+ 
+  <div class="header-container">
+     <!-- Configurable Dropdown -->
+    <ng-container *ngIf="showDropdown">
+    <div class="dropdown">
+      <button class="dropdown-toggle" (click)="toggleDropdown($event)">
+        Column Visibility
+      </button>
+      <div class="dropdown-menu" [class.show]="dropdownOpen">
+        <mat-checkbox *ngFor="let column of config.columns" 
+         
+          [checked]="columnVisibility[column.field]" 
+          (change)="toggleColumnVisibility(column.field)">
+          {{ column.header }}
+        </mat-checkbox>
+      </div>
+    </div>
+  </ng-container>
+  <!-- Configurable Search Input -->
+  <ng-container *ngIf="showSearchInput">
+    <div class="search-container">
+      <input
+        matInput
+        class="search-input"
+        placeholder="Search......"
+        (keyup)="applyGlobalSearch($event)"
+      />
+    </div>
+  </ng-container>
+  </div>
+   <!-- sorting and pageing load spinner -->
+  <div class="spinner-container" *ngIf="spinner_loading">
+    <mat-progress-spinner mode="indeterminate" diameter="50"></mat-progress-spinner>
+  </div>
+  
+    <!-- <div #scrollContainer class="scroll-container" (scroll)="onScroll($event)">    -->
+    
+  <table mat-table [dataSource]="dataSource" matSort [class.grouping]="config.enableGrouping">
+
+    
+
+
+    <!-- Iterate over columns dynamically -->
+    <ng-container *ngFor="let column of config.columns">
+      <ng-container matColumnDef="{{ column.field }}">
+
+        
+
+    <mat-header-cell *matHeaderCellDef
+                [mat-sort-header]="column.sortable ? column.field : ''"
+                 [ngClass]="mergedConfig.headerStyle">
+  <div class="header-wrapper">
+    <!-- Header text and optional sorting -->
+    <div class="header-text">
+      <span>{{ column.header }}</span>
+    </div>
+    <!-- Filter input below header -->
+    <div class="header-filter" *ngIf="column.filterable">
+      <input matInput placeholder="Filter"
+             (click)="$event.stopPropagation()"
+             (keyup)="applyFilter($event, column.field)">
+    </div>
+  </div>
+</mat-header-cell>
+
+ 
+
+        <!-- Data cell -->
+        <mat-cell *matCellDef="let row">
+          <!-- Apply the dynamic format pipe to each row value -->
+          <span  [matTooltip]="shouldShowTooltip(getValue(row, column.field)) ? getValue(row, column.field) : null"
+          matTooltipPosition="above"
+          matTooltipClass="custom-tooltip"
+          class="truncated-text">
+             <!-- Check if column type is 'checkbox' -->
+     
+            
+            {{ getValue(row, column.field) | TableCellFormat: (column.format || 'defaultFormat')  }}
+
+          </span>
+          
+        </mat-cell>
+      </ng-container>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="actions" *ngIf="config.actions?.length || config.editable">
+      <mat-header-cell *matHeaderCellDef [ngClass]="mergedConfig.headerStyle">Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <!-- Render action buttons if config.actions exist -->
+        <ng-container *ngIf="config.actions?.length">
+          <ng-container *ngFor="let action of config.actions">
+            <button type="button" mat-icon-button (click)="action.callback(row); $event.stopPropagation()">
+              <mat-icon>{{ action.icon }}</mat-icon>
+            </button>
+          </ng-container>
+        </ng-container>
+
+        <!-- Render toggleEdit button if config.editable is true -->
+        <button type="button" mat-icon-button (click)="toggleEdit(row); $event.stopPropagation()" *ngIf="config.editable">
+          <mat-icon>{{ editingRowId === row.id ? 'done' : 'edit' }}</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Header and row definitions -->
+    <mat-header-row *matHeaderRowDef="displayedColumns" [ngClass]="mergedConfig.headerStyle"></mat-header-row>
+
+    <!-- Row styles with proper fallbacks for row style -->
+    <mat-row *matRowDef="let row; let i = index; columns: displayedColumns;"
+    [ngClass]="[
+    (clickedRow === row ? 'selected-row' : ''),
+    i % 2 === 0 ? mergedConfig.altRowStyle : mergedConfig.rowStyle
+  ]"
+  (click)="onRowClick(row)">
+    </mat-row>
+  </table>
+
+  <!-- Pagination (Optional) -->
+    <mat-paginator #paginator *ngIf="config.enablePagination"
+  [pageSizeOptions]="config.pageSizeOptions || [5, 10, 20, 50, 100]"
+  [length]="totalCount"
+  [pageSize]="pageSize"
+  [pageIndex]="currentPage-1"
+  (page)="onPageChange($event)" 
+  >
+</mat-paginator>     
+
+   <!-- <mat-paginator *ngIf="config.enablePagination" 
+[pageSizeOptions]="config.pageSizeOptions || [5, 10, 20, 50, 100]"
+ 
+>
+</mat-paginator>     -->
+ 
+<!-- </div> -->

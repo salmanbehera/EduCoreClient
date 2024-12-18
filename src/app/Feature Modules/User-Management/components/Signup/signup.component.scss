@@ -1,0 +1,11 @@
+.student-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%; /* Adjusted maximum width */
+    margin: auto; /* Center the form */
+    padding: 20px; /* Add padding inside the form */
+    border: 1px solid #ccc; /* Optional: border for the form */
+    border-radius: 8px; /* Optional: rounded corners */
+    background-color: #fff; /* Form background color */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow */
+}

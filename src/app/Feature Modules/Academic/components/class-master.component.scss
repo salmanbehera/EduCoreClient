@@ -1,0 +1,49 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px;
+    background-color: #333;
+    border-bottom: 1px solid #ddd;
+    color: #fff;
+    margin-top: 30px;
+    
+  
+    h2 {
+      margin: 0;
+      font-size: 16px;
+      
+    }
+
+    .header-button {
+      display: flex;
+      align-items: center;
+      padding: 2px 10px;
+      font-weight: bold;
+      font-size: 12px;
+      text-transform:capitalize; 
+      border-radius: 4px;
+      background-color: #333; /* Primary blue */
+      color: white; /* Button text color */
+      box-shadow: none;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  
+      mat-icon {
+        margin-right: 8px;
+      }
+  
+      &:hover {
+        background-color: #333; /* Slightly darker blue on hover */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+      }
+  
+      &:active {
+        background-color: #333; /* Even darker blue when clicked */
+      }
+    }
+    
+  }
+  
+  
+ 
+  

@@ -1,0 +1,12 @@
+
+<button
+  mat-raised-button
+  [color]="color"
+  [type]="type"
+  [disabled]="disabled"
+  matTooltip="{{ tooltip }}"
+  (click)="handleClick()"
+>
+  <mat-icon *ngIf="icon" class="button-icon">{{ icon }}</mat-icon>
+  {{ label }}
+</button>

@@ -1,0 +1,28 @@
+// Card Component
+.card {
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    background-color: #fff;
+  }
+  
+  // Dialog Component
+  .dialog-header {
+    font-size: $font-large;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .dialog-body {
+    font-size: $font-normal;
+  }
+  
+  .dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+  
+    .btn {
+      margin-left: 10px;
+    }
+  }
+  

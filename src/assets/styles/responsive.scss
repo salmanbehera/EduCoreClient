@@ -1,0 +1,73 @@
+// Base Media Queries
+@media (max-width: 1200px) {
+  .container {
+    padding: 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .col-6 {
+    flex: 0 0 100%;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.75rem;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+  }
+
+  .container {
+    padding: 5px;
+  }
+}
+
+/* Base table styles */
+.table-container {
+width: 100%;
+margin: 0 auto;
+overflow-x: auto;
+}
+
+table {
+  
+width: 100%;
+border-collapse: collapse;
+table-layout: auto;
+}
+
+th, td {
+padding: 16px;
+text-align: left;
+ 
+}
+
+/* Adjust padding and font size on smaller screens */
+@media (max-width: 768px) {
+th, td {
+  padding: 12px 8px;
+  font-size: 14px;
+  white-space: normal;
+}
+}
+
+@media (max-width: 480px) {
+th, td {
+  font-size: 14px;
+}
+}

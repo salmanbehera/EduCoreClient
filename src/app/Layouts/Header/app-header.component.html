@@ -1,0 +1,57 @@
+<mat-toolbar color="primary" class="header-toolbar">
+  <!-- Left side -->
+  <span class="left-menu">
+      <button mat-icon-button   (click)="onToggleSidebar()">
+          <mat-icon>menu</mat-icon>
+        </button>
+    <span class="logo">MyApp</span>
+  </span>
+
+  <!-- Spacer -->
+  <span class="spacer"></span>
+
+  <!-- Right side icons -->
+  <span class="right-menu">
+    <button mat-icon-button><mat-icon>home</mat-icon></button>
+    <button mat-icon-button><mat-icon>star</mat-icon></button>
+    <button mat-icon-button><mat-icon>flag</mat-icon></button>
+    <button mat-icon-button>
+      <mat-icon>notifications</mat-icon>
+      <span class="notification-badge">96</span>
+    </button>
+    
+     <!-- Account Circle with Menu -->
+     <button mat-icon-button [matMenuTriggerFor]="accountMenu">
+      <mat-icon>account_circle</mat-icon>
+  </button>
+
+
+<!-- Popup Menu -->
+<mat-menu #accountMenu="matMenu" class="account-menu">
+<div class="menu-content">
+    <!-- Menu Header Section -->
+    <div class="menu-header">
+        <span class="menu-title">Settings and Actions</span>
+        <button mat-button class="sign-out">Sign Out</button>
+    </div>
+
+    <!-- Personalization Section -->
+    <div class="menu-section personalization">
+        <span class="section-title">Personalization</span>
+        <button mat-menu-item>Access Accessibility Settings</button>
+        <button mat-menu-item>Set Preferences</button>
+    </div>
+
+    <!-- Troubleshooting Section -->
+    <div class="menu-section">
+        <span class="section-title">Troubleshooting</span>
+        <button mat-menu-item>Record Issue</button>
+        <button mat-menu-item>Print Me</button>
+        <button mat-menu-item>Hide Help Icons</button>
+        <button mat-menu-item>Applications Help</button>
+        <button mat-menu-item>About This Application</button>
+    </div>
+</div>
+</mat-menu>
+</span>
+</mat-toolbar>

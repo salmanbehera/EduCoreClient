@@ -1,0 +1,179 @@
+// Define global colors and variables
+$primary-color: #3f51b5; // Primary theme color
+$secondary-color: #ff4081; // Secondary theme color
+$table-border-color: #ddd; // Border color for table rows
+
+// Global Table Container Style
+.table-container {
+    padding: 20px;
+    background-color: #f5f5f5; // Light background for contrast
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+// Table Title Styling
+.table-title {
+    color: $primary-color;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+// Global Table Layout Styles
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+
+    th, td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid $table-border-color;
+    }
+
+    th.mat-header-cell {
+        background-color: $primary-color; // Primary color for header
+        color: white;
+        text-transform: uppercase;
+    }
+
+    td.mat-cell {
+        color: #333; // Dark text for readability
+    }
+
+    // Zebra-striping for table rows
+    tr:nth-child(even) {
+        background-color: #f2f2f2; // Lighter background for even rows
+    }
+}
+
+// Button Styling inside Table
+button {
+    margin-right: 5px;
+    font-size: 14px;
+    transition: background-color 0.3s;
+
+    &:hover {
+        background-color: rgba($primary-color, 0.1); // Light hover effect
+    }
+}
+
+// Responsive Adjustments for Mobile
+@media (max-width: 600px) {
+    .table-title {
+        font-size: 18px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
+/* Global button styles for table buttons */
+/* Base button style */
+.table-container button {
+    padding: 10px 20px;  /* Padding for buttons */
+    border: none;        /* No border */
+    border-radius: 4px; /* Slightly rounded corners */
+    cursor: pointer;     /* Pointer cursor on hover */
+    font-size: 14px;    /* Standard font size */
+    font-weight: bold;   /* Bold font for emphasis */
+    transition: background-color 0.3s, transform 0.2s; /* Smooth transitions */
+    width: 100px;
+}
+
+/* Primary button style */
+.table-container .button-primary {
+    background-color: #3f51b5; /* Primary color */
+    color: white;              /* Text color */
+}
+
+.table-container .button-primary:hover {
+    background-color: #303f9f; /* Darker primary color on hover */
+    transform: scale(1.05);    /* Slightly enlarge button */
+}
+
+.table-container .button-primary:active {
+    background-color: #283593; /* Even darker color when active */
+    transform: scale(0.95);    /* Slightly reduce size when pressed */
+}
+
+.table-container .button-primary:focus {
+    outline: 2px solid #ff4081; /* Outline for accessibility */
+}
+
+/* Secondary button style */
+.table-container .button-secondary {
+    background-color: #f44336; /* Secondary color */
+    color: white;              /* Text color */
+}
+
+.table-container .button-secondary:hover {
+    background-color: #c62828; /* Darker secondary color on hover */
+    transform: scale(1.05);    /* Slightly enlarge button */
+}
+
+.table-container .button-secondary:active {
+    background-color: #b71c1c; /* Even darker color when active */
+    transform: scale(0.95);    /* Slightly reduce size when pressed */
+}
+
+.table-container .button-secondary:focus {
+    outline: 2px solid #ff4081; /* Outline for accessibility */
+}
+
+/* Tertiary button style */
+.table-container .button-tertiary {
+    background-color: #ff9800; /* Tertiary color */
+    color: white;              /* Text color */
+}
+
+.table-container .button-tertiary:hover {
+    background-color: #f57c00; /* Darker tertiary color on hover */
+    transform: scale(1.05);    /* Slightly enlarge button */
+}
+
+.table-container .button-tertiary:active {
+    background-color: #ef6c00; /* Even darker color when active */
+    transform: scale(0.95);    /* Slightly reduce size when pressed */
+}
+
+.table-container .button-tertiary:focus {
+    outline: 2px solid #ff4081; /* Outline for accessibility */
+}
+
+/* Ghost button style */
+.table-container .button-ghost {
+    background-color: transparent; /* Transparent background */
+    color: #3f51b5;               /* Primary text color */
+    border: 2px solid #3f51b5;    /* Border in primary color */
+}
+
+.table-container .button-ghost:hover {
+    background-color: rgba(63, 81, 181, 0.1); /* Light background on hover */
+}
+
+.table-container .button-ghost:active {
+    background-color: rgba(63, 81, 181, 0.2); /* Slightly darker on active */
+}
+
+.table-container .button-ghost:focus {
+    outline: 2px solid #ff4081; /* Outline for accessibility */
+}
+
+/* Danger button style */
+.table-container .button-danger {
+    background-color: #f44336; /* Danger color */
+    color: white;              /* Text color */
+}
+
+.table-container .button-danger:hover {
+    background-color: #c62828; /* Darker danger color on hover */
+}
+
+.table-container .button-danger:active {
+    background-color: #b71c1c; /* Even darker color when active */
+}
+
+.table-container .button-danger:focus {
+    outline: 2px solid #ff4081; /* Outline for accessibility */
+}

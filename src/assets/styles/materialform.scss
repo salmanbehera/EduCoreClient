@@ -1,0 +1,262 @@
+/* General styling for all mat-form-field elements */
+mat-form-field.textbox {
+    width: 300px; /* Set the desired width */
+    height: 70px; /* Set the desired height */
+    .mat-form-field-wrapper {
+        height: 100%; /* Ensure the wrapper takes full height */
+    }
+    .mat-label {
+        transform: translateY(1.5em); /* Adjust label position */
+        transition: transform 0.2s ease; /* Smooth transition for label */
+    }
+    input.mat-input-element {
+        height: 30px; /* Adjust input height */
+        padding: 4px; /* Optional: adjust padding */
+        font-size: 16px; /* Optional: adjust font size */
+    }
+      
+     
+}
+
+
+
+/* Dropdown styling */
+mat-form-field.dropdown {
+    width: 300px; /* Set the desired width */
+    height: 70px;
+    .mat-select {
+        height: 40px; /* Adjust dropdown height */
+        
+        .mat-select-trigger {
+            height: 30px; /* Adjust trigger height */
+            line-height: 30px; /* Center the text vertically */
+        }
+    }
+}
+
+/* Textarea styling */
+mat-form-field.textarea {
+    width: 300px; /* Set the desired width */
+    height: 100px;
+    
+    textarea.mat-input-element {
+        height: 40px; /* Set desired height */
+        padding: 4px; /* Adjust padding */
+        font-size: 14px; /* Adjust font size */
+         line-height: normal; /* Reset line height */
+         
+    }
+}
+ /* Radio Button */
+ .mat-radio-group {
+    display: flex; /* Flex layout for radio buttons */
+    flex-direction: column; /* Stack vertically */
+  }
+  
+  .mat-radio-button {
+    display: flex; /* Flex layout for individual radio button */
+    align-items: center; /* Center radio button vertically */
+    margin-bottom: 10px; /* Space below each radio button */
+  }
+  /* Checkbox */
+  .mat-checkbox {
+    display: flex; /* Flex layout for checkbox */
+    align-items: center; /* Center checkbox vertically */
+  }
+  
+  .mat-checkbox .mat-checkbox-input {
+    margin-right: 10px; /* Space to the right of checkbox */
+  }
+
+// //* Base button style */
+// .button {
+//     padding: 10px 20px;
+//     background-color: #3f51b5; /* Primary color */
+//     color: white;
+//     border: none;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+//     font-size: 16px;
+// }
+
+// .button:hover {
+//     background-color: #5c6bc0; /* Darker shade on hover */
+//     transform: translateY(-2px); /* Slight lift effect */
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+// }
+
+// .button:active {
+//     transform: translateY(0); /* Press down effect */
+//     box-shadow: none; /* Remove shadow on click */
+// }
+
+// /* Primary Button */
+// .btn-primary {
+//     background-color: #007bff;
+//     color: #ffffff;
+// }
+
+// .btn-primary:hover {
+//     background-color: #0056b3;
+//     transform: translateY(-2px);
+// }
+
+// /* Secondary Button */
+// .btn-secondary {
+//     background-color: #6c757d;
+//     color: #ffffff;
+// }
+
+// .btn-secondary:hover {
+//     background-color: #5a6268;
+//     transform: translateY(-2px);
+// }
+
+// /* Success Button */
+// .btn-success {
+//     background-color: #28a745;
+//     color: #ffffff;
+// }
+
+// .btn-success:hover {
+//     background-color: #218838;
+//     transform: translateY(-2px);
+// }
+
+// /* Danger Button */
+// .btn-danger {
+//     background-color: #dc3545;
+//     color: #ffffff;
+// }
+
+// .btn-danger:hover {
+//     background-color: #c82333;
+//     transform: translateY(-2px);
+// }
+
+// /* Warning Button */
+// .btn-warning {
+//     background-color: #ffc107;
+//     color: #212529;
+// }
+
+// .btn-warning:hover {
+//     background-color: #e0a800;
+//     transform: translateY(-2px);
+// }
+
+// /* Info Button */
+// .btn-info {
+//     background-color: #17a2b8;
+//     color: #ffffff;
+// }
+
+// .btn-info:hover {
+//     background-color: #138496;
+//     transform: translateY(-2px);
+// }
+
+// /* Light Button */
+// .btn-light {
+//     background-color: #f8f9fa;
+//     color: #212529;
+// }
+
+// .btn-light:hover {
+//     background-color: #e2e6ea;
+//     transform: translateY(-2px);
+// }
+
+// /* Dark Button */
+// .btn-dark {
+//     background-color: #343a40;
+//     color: #ffffff;
+// }
+
+// .btn-dark:hover {
+//     background-color: #23272b;
+//     transform: translateY(-2px);
+// }
+
+// /* Link Button */
+// .btn-link {
+//     background: none;
+//     color: #007bff;
+//     text-decoration: underline;
+// }
+
+// .btn-link:hover {
+//     text-decoration: none;
+// }
+
+
+// //utline-button
+// .outline-button {
+//     padding: 10px 20px;
+//     background-color: transparent; /* Transparent background */
+//     color: #3f51b5; /* Primary color */
+//     border: 2px solid #3f51b5; /* Primary border color */
+//     border-radius: 4px;
+//     cursor: pointer;
+//     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+//     font-size: 16px;
+// }
+
+// .outline-button:hover {
+//     background-color: #3f51b5; /* Fill background on hover */
+//     color: white; /* Change text color */
+//     transform: translateY(-2px); /* Lift effect */
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+// }
+
+// .outline-button:active {
+//     transform: translateY(0); /* Press down effect */
+//     box-shadow: none; /* Remove shadow on click */
+// }
+
+
+// //rounded button
+// .rounded-button {
+//     padding: 10px 20px;
+//     background-color: #ff4081; /* Pink background */
+//     color: white;
+//     border: none;
+//     border-radius: 25px; /* Fully rounded */
+//     cursor: pointer;
+//     transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+//     font-size: 16px;
+// }
+
+// .rounded-button:hover {
+//     background-color: #f50057; /* Darker shade on hover */
+//     transform: translateY(-2px); /* Lift effect */
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+// }
+
+// .rounded-button:active {
+//     transform: translateY(0); /* Press down effect */
+//     box-shadow: none; /* Remove shadow on click */
+// }
+// //gradient button
+// .gradient-button {
+//     padding: 10px 20px;
+//     background: linear-gradient(45deg, #6a11cb, #2575fc); /* Gradient background */
+//     color: white;
+//     border: none;
+//     border-radius: 4px;
+//     cursor: pointer;
+//     transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+//     font-size: 16px;
+// }
+
+// .gradient-button:hover {
+//     background: linear-gradient(45deg, #8e24aa, #1e88e5); /* Darker gradient on hover */
+//     transform: translateY(-2px); /* Lift effect */
+//     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow effect */
+// }
+
+// .gradient-button:active {
+//     transform: translateY(0); /* Press down effect */
+//     box-shadow: none; /* Remove shadow on click */
+// }

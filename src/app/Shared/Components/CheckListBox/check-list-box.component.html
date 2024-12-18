@@ -1,0 +1,72 @@
+ 
+<mat-form-field appearance="outline" [style.width]="width">
+    <mat-label>{{ label }}</mat-label>
+  
+    <mat-select
+      #scrollableCheckboxDropdown
+      [formControl]="control"
+      [placeholder]="placeholder"
+      (selectionChange)="onSelectionChange($event)"
+      [panelClass]="dropdownDirection"
+      
+      multiple
+    >
+      <mat-select-trigger>
+        {{ getSelectedOptionsText() }}
+      </mat-select-trigger>
+  
+      <!-- Select All/Unselect All checkbox as a custom header -->
+      <div class="select-all-header">
+        <mat-checkbox
+          [checked]="isAllSelected()"
+          (change)="toggleSelectAll($event.checked)"
+        >
+          Select All
+        </mat-checkbox>
+      </div>
+    <!-- Search input inside the dropdown -->
+    <div>
+        <input
+          matInput=""
+          [formControl]="searchControl"
+          placeholder="Search..."
+          (click)="$event.stopPropagation()" 
+          (keydown)="onKeydown($event)"
+        />
+      </div>
+  
+  
+      <!-- Display filtered options -->
+      <ng-container *ngIf="filteredOptions | async as options">
+        <ng-container *ngFor="let option of options">
+          <!-- Automatically handles checkboxes for multiple selection -->
+          <mat-option [value]="option.value">
+             
+              {{ option.text }}
+            
+          </mat-option>
+        </ng-container>
+  
+        <!-- No options available message -->
+        <mat-option *ngIf="options.length === 0" disabled>
+          No options available.
+        </mat-option>
+      </ng-container>
+  
+      <!-- Loading spinner -->
+     
+      <div *ngIf="isLoading" disabled>
+        
+        <div class="loading-container">
+          <mat-spinner diameter="20"></mat-spinner>
+          <span class="loading-text">Loading more options...</span>
+        </div>
+      </div>
+    </mat-select>
+  
+    <!-- Error Message -->
+    <mat-error *ngIf="control?.touched && control.invalid">
+      {{ errorMessage }}
+    </mat-error>
+  </mat-form-field>
+ 
