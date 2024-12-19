@@ -1,0 +1,41 @@
+.dialog {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 400px;
+    background: #fff;
+    padding: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+  
+    h2 {
+      margin-bottom: 16px;
+    }
+  
+    .full-width {
+      width: 100%;
+      margin-bottom: 16px;
+    }
+  
+    .button-container {
+      display: flex;
+      justify-content: center; /* Centers buttons horizontally */
+    align-items: center;     /* Centers buttons vertically */
+      gap: 8px; /* Adjust this value for the space between buttons */
+    }
+  }
+  .close-button {
+    position: absolute;
+    right: 8px; /* Adjust as needed */
+    top: 8px; /* Adjust as needed */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+     
+  }
+  .close-button img {
+    width: 30px; /* Adjust the size of the close icon */
+    height: 30px; /* Adjust the size of the close icon */
+  }
+  

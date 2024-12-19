@@ -1,1 +1,30 @@
-<p>section-master works!</p>
+<div class="container" >
+    <div class="header">
+        <h2>Section Master</h2>
+        <button mat-raised-button class="header-button" 
+        (click)="openDialog({ action: 'save' })">
+          <mat-icon>add</mat-icon> Add
+        </button>
+      </div>
+    
+      <div>
+        <app-custom-table
+        *ngIf="sections && sections.length > 0"
+         
+        [config]="tableConfig"
+        [totalCount]="totalCount"
+        [pageSize]="pageSize"
+        [currentPage]="currentPage"
+        (pageChange)="onPageChange($event)"
+        [data]="sections">
+      </app-custom-table> 
+    <p *ngIf="!sections || sections.length === 0">Loading...</p> 
+      
+     
+          </div> 
+     
+      </div>
+      
+      
+     
+    

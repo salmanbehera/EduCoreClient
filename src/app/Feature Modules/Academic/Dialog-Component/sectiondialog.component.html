@@ -1,0 +1,53 @@
+<div class="container">
+    <!-- Dialog for Adding a Class -->
+    <div  class="dialog">
+         
+      <h2>
+        {{ action === 'edit' ? 'Edit Section' : action === 'view' ? 'View Section' : 'Add New Section' }}
+      </h2>
+        <button mat-icon-button class="close-button" (click)="closeDialog()">
+          <img src="assets/images/closebutton.png" alt="Close" class="close-icon" />
+        </button>
+        <form [formGroup]="sectionForm">
+          <app-input
+          label="id"
+          icon="person"
+          placeholder="id"
+          [control]="getControl('id')" 
+          [isHidden]="true"
+         
+        ></app-input>
+        
+            <app-input
+            label="Section Name"
+            icon="person"
+            placeholder="Section Name"
+            [control]="getControl('sectionName')" 
+          ></app-input>
+          <app-input
+          label="Section Short Name"
+          icon="person"
+          placeholder="Section Short Name"
+          [control]="getControl('sectionShortName')" 
+        ></app-input>
+        <div class="button-container">
+        <app-button
+        [label]="action === 'edit' ? 'Update' : 'Save'"
+        color="primary"
+        [disabled]="data.action === 'view'"  
+        [tooltip]="action === 'edit' ? 'Update' : 'Save'"
+        (onClick)="SubmitSection()"   
+        ></app-button>
+        <app-button
+        label="Reset"
+        color="accent"
+        [disabled]="data.action === 'view'"  
+        [tooltip]="'Reset'"  
+        (onClick)="ResetForm()"
+        ></app-button>
+        </div>
+             
+        </form>
+      </div>
+      
+    </div>

@@ -34,16 +34,16 @@
     <app-button
     [label]="action === 'edit' ? 'Update' : 'Save'"
     color="primary"
-    [disabled]="data.action === 'view'">  
+    [disabled]="data.action === 'view'"  
     [tooltip]="action === 'edit' ? 'Update' : 'Save'"
     (onClick)="SubmitClass()"   
     ></app-button>
     <app-button
     label="Reset"
     color="accent"
-    [disabled]="data.action === 'view'">  
+    [disabled]="data.action === 'view'" 
     [tooltip]="'Reset'"  
-     
+    (onClick)="ResetForm()"
     ></app-button>
     </div>
          

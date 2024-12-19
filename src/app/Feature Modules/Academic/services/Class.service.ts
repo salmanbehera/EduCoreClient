@@ -1,12 +1,9 @@
 import { Inject, Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { ClassDto } from '../models/classdto.model';
-
 import { ApiConfig } from '../Config/ApiConfig';
-import { CLASS_API_URL } from '../Config/Api-Tokens';
 import { HttpUtilsService } from '../../../Shared/utils/HttpUtilities.Service';
 import { HttpParams } from '@angular/common/http';
- 
  
 
 @Injectable({
@@ -32,7 +29,6 @@ UpdateClass(classDto: ClassDto): Observable<ClassDto> {
 // DELETE: Delete Class by ID
 DeleteClass(classId: string): Observable<void> {
   const url = `${this.apiUrl}/${classId}`;
-  console.log(url);
   return this.httpUtils.delete<void>(url);
 }
 

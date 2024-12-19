@@ -1,4 +1,3 @@
- 
 export interface ClassDto {
     id: string;
     className: string;

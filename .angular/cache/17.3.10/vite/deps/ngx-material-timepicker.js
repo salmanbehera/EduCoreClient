@@ -1,4 +1,11 @@
 import {
+  animate,
+  sequence,
+  style,
+  transition,
+  trigger
+} from "./chunk-25QX3O55.js";
+import {
   DefaultValueAccessor,
   FormControl,
   FormControlDirective,
@@ -9,13 +16,6 @@ import {
   NgModel,
   ReactiveFormsModule
 } from "./chunk-EKD7ENEW.js";
-import {
-  animate,
-  sequence,
-  style,
-  transition,
-  trigger
-} from "./chunk-25QX3O55.js";
 import {
   AsyncPipe,
   CommonModule,

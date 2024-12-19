@@ -32,7 +32,8 @@ import { HttpFormMessageService } from '../../../Shared/utils/HttpFormMessage.se
   // providers: [MatDialog, Overlay], // Add providers here
 })
 export class ClassMasterComponent implements OnInit {
-  constructor(private dialog: MatDialog,
+  constructor(
+    private dialog: MatDialog,
     private classservice:ClassService,
     private cdr: ChangeDetectorRef,
     private notificationService:NotificationService

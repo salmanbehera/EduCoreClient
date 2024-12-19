@@ -63,7 +63,7 @@ export class ClassdialogComponent implements OnInit {
     });
     this.classForm = this.fb.group({
       id:'00000000-0000-0000-0000-000000000000',
-      isDeleted:'false',
+      isDeleted:false,
       //id: [null], // Hidden ID field
       className: ['', [Validators.required, Validators.minLength(3),
                       Validators.maxLength(20)]],
@@ -106,7 +106,9 @@ export class ClassdialogComponent implements OnInit {
         // Pass the saved data to the parent and close the dialog
         this.dialogRef.close({ action: 'save', data: response?.id });
       },
+
       error: (error) => {
+         
         this.httpformmessage.handleError(error);
       },
     });
@@ -149,6 +151,9 @@ export class ClassdialogComponent implements OnInit {
       this.httpformmessage.handleDataNotFound();
        
     }
+  }
+  ResetForm(): void {
+    this.classForm.reset();
   }
 }
  
